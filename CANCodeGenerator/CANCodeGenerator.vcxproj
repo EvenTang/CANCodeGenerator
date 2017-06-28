@@ -142,9 +142,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MailFile.cpp" />
+    <ClCompile Include="DBCAnalyzer.cpp" />
+    <ClCompile Include="MainFile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DBCAnalyzer.h" />
     <ClInclude Include="SampleSource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
