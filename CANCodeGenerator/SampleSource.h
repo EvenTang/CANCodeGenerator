@@ -26,10 +26,16 @@ class MessageA {
 	static const uint32_t message_id = 0x33;
 	static std::string const message_name;
 
-	void UpdateSignals(std::array<uint8_t, 8> const & _buffer) {
+	void UpdateSignalsByMessagePayload(std::array<uint8_t, 8> const & _buffer) {
 		a.m_signal_value = ExractSignalFromMessage<uint8_t>(_buffer, 2, 3);
 		b.m_signal_value = ExractSignalFromMessage<uint16_t>(_buffer, 2, 3);
 	}
+#if 0 // todo : this is not usefull for current tool but should be considered in future.  
+	void GetMessagePayload(std::array<uint8_t, 8> & _buffer) {
+		a.m_signal_value = ExractSignalFromMessage<uint8_t>(_buffer, 2, 3);
+		b.m_signal_value = ExractSignalFromMessage<uint16_t>(_buffer, 2, 3);
+	}
+#endif
 
 	std::array<uint8_t, 8> m_message_buffer;
 
