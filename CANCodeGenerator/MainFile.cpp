@@ -1,20 +1,22 @@
 #include <iostream>
 
 
-#include "SampleSource.h"
-
+#include "DBCAnalyzer.h"
+#include "CANCodeGenerator.h"
 
 using namespace std;
 
-
-
-
-
-
 int main() {
+	DBCAnalyzer parser;
+	auto dbc_file_descriptor = parser.Analyze("D:\\06 ProjectAsistent\\ClarionMitsubishi\\LogCompareTool\\test.dbc");
 
+	CANCodeGenerator generator;
+	auto source_code = generator.GenerateCode(dbc_file_descriptor);
 
+	for (auto const & str : source_code) {
+		cout << str << endl;
 
+	}
 	cout << "=> End !" << endl;
 	return 0;
 }

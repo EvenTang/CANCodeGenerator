@@ -142,10 +142,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CANCodeGenerator.cpp" />
     <ClCompile Include="DBCAnalyzer.cpp" />
     <ClCompile Include="MainFile.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CANCodeGenerator.h" />
     <ClInclude Include="DBCAnalyzer.h" />
     <ClInclude Include="SampleSource.h" />
   </ItemGroup>

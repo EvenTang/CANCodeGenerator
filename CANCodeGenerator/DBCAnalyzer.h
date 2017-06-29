@@ -10,11 +10,14 @@ public:
 	void SetName(std::string const _name) {
 		m_signal_name = _name;
 	}
+	std::string const & Name(void) const { return m_signal_name; }
 
 	void SetBitInfo(uint8_t _start, uint8_t _size) {
 		m_start_bit = _start;
 		m_signal_size = _size;
 	}
+	uint8_t StartBit(void) const { return m_start_bit; }
+	uint8_t SignalSize(void) const { return m_signal_size; }
 
 	void SetIsBigEndian(bool _is_big_endian) {
 		m_is_big_endian = _is_big_endian;
@@ -34,9 +37,13 @@ private:
 class Message {
 
 public:
+
+	std::string const & Name() const { return m_message_name; }
 	void SetMessageName(std::string const & _name) {
 		m_message_name = _name;
 	}
+
+	uint32_t ID(void) const { return m_msg_id; }
 	void SetMsgID(uint32_t _msg_id) { m_msg_id = _msg_id; }
 
 	void AddSignal(Signal const & _signal) {
@@ -45,6 +52,9 @@ public:
 
 	std::vector<Signal> & Signals(void) { 
 		return m_signals; 
+	}
+	std::vector<Signal> const & Signals(void) const {
+		return m_signals;
 	}
 private:
 	std::string         m_message_name;
@@ -58,6 +68,10 @@ public:
 		m_messages.push_back(_msg);
 	}
 	std::vector<Message> & Messages(void) {
+		return m_messages;
+	}
+
+	std::vector<Message> const & Messages(void) const {
 		return m_messages;
 	}
 
@@ -83,7 +97,7 @@ public:
 
 
 private:
-	void AnalyzerDBCByLines(std::vector<std::string> const & _lines);
+	void AnalyzerDBCByLines(std::vector<std::string> const & _lines, DBCFileDescriptor & _file_descriptor);
 
 	bool MessageRecognizer(std::string const & _line, DBCFileDescriptor & _file_descriptor);
 	bool SignalRecognizer(std::string const & _line, Message & _msg);

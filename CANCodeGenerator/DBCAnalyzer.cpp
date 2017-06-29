@@ -1,6 +1,7 @@
 #include "DBCAnalyzer.h"
 
 #include <regex>
+#include <fstream>
 
 
 DBCAnalyzer::DBCAnalyzer()
@@ -16,20 +17,26 @@ DBCFileDescriptor DBCAnalyzer::Analyze(std::string const & _file_name)
 {
 	DBCFileDescriptor file_descriptor;
 		
-	//AnalyzerDBCByLines();
+	std::ifstream in_file(_file_name);
+	std::vector<std::string> file_lines;
+	std::string line;
+	while (std::getline(in_file, line)) {
+		file_lines.push_back(line);
+	}
+	AnalyzerDBCByLines(file_lines, file_descriptor);
 
 	return std::move(file_descriptor);
 }
 
-void DBCAnalyzer::AnalyzerDBCByLines(std::vector<std::string> const & _lines)
+void DBCAnalyzer::AnalyzerDBCByLines(std::vector<std::string> const & _lines, DBCFileDescriptor & _file_descriptor)
 {
-	DBCFileDescriptor file_descriptor;
+	;
 	for (auto iter = _lines.begin(); iter != _lines.end(); ++iter) {
-		if (MessageRecognizer(*iter, file_descriptor))
+		if (MessageRecognizer(*iter, _file_descriptor))
 		{
-			auto & msg = file_descriptor.Messages().back();
+			auto & msg = _file_descriptor.Messages().back();
 			++iter;
-			while (SignalRecognizer(*iter, msg)) {
+			while (iter != _lines.end() && SignalRecognizer(*iter, msg)) {
 				++iter;
 			}
 			--iter;
@@ -40,7 +47,7 @@ void DBCAnalyzer::AnalyzerDBCByLines(std::vector<std::string> const & _lines)
 bool DBCAnalyzer::MessageRecognizer(std::string const & _line, DBCFileDescriptor & _file_descriptor)
 {
 	// message = BO_ message_id message_name ':' message_size transmitter{ signal };
-	std::regex message_definition(R"(BO_\s+(\d+)\s+(\w+)\s+:.*)");
+	std::regex message_definition(R"(BO_\s+(\d+)\s+(\w+)\s*:.*)");
 	std::smatch m;
 	if (!std::regex_match(_line, m, message_definition)) {
 		return false;
