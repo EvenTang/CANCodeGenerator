@@ -1,6 +1,6 @@
 # CANCode Generator 
 
-## what is it?
+## What is it?
 
 Hand writing code for parsing CAN data frames is a boring work, and it is esay to make mistake.
 
