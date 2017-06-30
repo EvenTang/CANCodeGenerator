@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
 	DBCAnalyzer parser;
-	auto dbc_file_descriptor = parser.Analyze("D:\\06 ProjectAsistent\\ClarionMitsubishi\\LogCompareTool\\test.dbc");
+	auto dbc_file_descriptor = parser.Analyze("");
 
 	CANCodeGenerator generator;
 	auto source_code = generator.GenerateCode(dbc_file_descriptor);
