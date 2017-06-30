@@ -136,3 +136,9 @@ T ExractSignalFromMessage(
 It can work in very simple project now.
 
 To be updated. (functionality of the tool~)
+
+## To do list
+
+1. improve the DBC parser to support complete generate complete DBCDescriptor.
+2. Greate Kinds of Code Generator to support more needs.
+
