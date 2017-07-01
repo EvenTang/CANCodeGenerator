@@ -19,12 +19,14 @@ public:
 	uint8_t StartBit(void) const { return m_start_bit; }
 	uint8_t SignalSize(void) const { return m_signal_size; }
 
+	bool IsBigEndian(void) const { return m_is_big_endian; }
 	void SetIsBigEndian(bool _is_big_endian) {
 		m_is_big_endian = _is_big_endian;
 	}
 	void SetIsUnsigned(bool _is_unsigned) {
 		m_is_unsigned = _is_unsigned;
 	}
+
 
 private:
 	std::string m_signal_name;

@@ -21,6 +21,6 @@ private:
 	std::vector<std::string> GenerateMessageClassUpdateSignalMethod(Message const & _message);
 	std::vector<std::string> GenerateMessageClassDataMemberDefinition(Message const & _message);
 
-	std::vector<std::string> AddIndent(std::vector<std::string> const & _source);
+	
 };
 
