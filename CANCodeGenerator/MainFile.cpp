@@ -10,9 +10,7 @@ using namespace std;
 
 int main() {
 	DBCAnalyzer parser;
-	//auto dbc_file_descriptor = parser.Analyze("D:\\06 ProjectAsistent\\ClarionMitsubishi\\LogCompareTool\\CAN1_151215_CL_Local.dbc");
-	//auto dbc_file_descriptor = parser.Analyze("D:\\06 ProjectAsistent\\ClarionMitsubishi\\LogCompareTool\\CAN2_151215_CL_Local.dbc");
-	auto dbc_file_descriptor = parser.Analyze("D:\\06 ProjectAsistent\\ClarionMitsubishi\\LogCompareTool\\CAN3_151215_CL_Local.dbc");
+	auto dbc_file_descriptor = parser.Analyze("test.dbc");
 
 	CodeGenForDiffTool generator;
 	auto source_code = generator.GenerateCode(dbc_file_descriptor);
