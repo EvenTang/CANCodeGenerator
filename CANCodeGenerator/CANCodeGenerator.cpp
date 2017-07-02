@@ -2,14 +2,8 @@
 
 #include <array>
 
-template <typename T>
-std::vector<T> const & operator += (std::vector<T> & _lhs, std::vector<T> const & _rhs) {
-	_lhs.insert(_lhs.end(),
-		_rhs.begin(),
-		_rhs.end());
+#include "CommonlibsForCodeGen.h"
 
-	return _lhs;
-}
 
 CANCodeGenerator::CANCodeGenerator()
 {
@@ -141,12 +135,4 @@ std::vector<std::string> CANCodeGenerator::GenerateMessageClassDataMemberDefinit
 	return message_constructor;
 }
 
-std::vector<std::string> CANCodeGenerator::AddIndent(std::vector<std::string> const & _source)
-{
-	auto new_code = std::vector<std::string>();
-	for (auto const & line : _source) {
-		new_code.push_back("    " + line);
-	}
 
-	return new_code;
-}

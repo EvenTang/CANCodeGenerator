@@ -24,6 +24,12 @@
     <ClCompile Include="CANCodeGenerator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CodeGenForDiffTool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonlibsForCodeGen.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SampleSource.h">
@@ -33,6 +39,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CANCodeGenerator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeGenForDiffTool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonlibsForCodeGen.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

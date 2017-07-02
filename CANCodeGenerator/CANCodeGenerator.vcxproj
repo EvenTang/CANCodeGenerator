@@ -143,11 +143,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CANCodeGenerator.cpp" />
+    <ClCompile Include="CodeGenForDiffTool.cpp" />
+    <ClCompile Include="CommonlibsForCodeGen.cpp" />
     <ClCompile Include="DBCAnalyzer.cpp" />
     <ClCompile Include="MainFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CANCodeGenerator.h" />
+    <ClInclude Include="CodeGenForDiffTool.h" />
+    <ClInclude Include="CommonlibsForCodeGen.h" />
     <ClInclude Include="DBCAnalyzer.h" />
     <ClInclude Include="SampleSource.h" />
   </ItemGroup>
