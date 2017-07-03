@@ -75,9 +75,12 @@ bool DBCAnalyzer::SignalRecognizer(std::string const & _line, Message & _msg)
 	Signal signal;
 	signal.SetName(m[1].str());
 
-	// 0 - little endian (Intel)
-    // 1 - big endian (Motorola)
-	signal.SetIsBigEndian(m[4].str() == "1");
+	// 1 - little endian (Intel)
+    // 0 - big endian (Motorola)
+	// @attention : this is different from DBC-File-Format-Documentation.pdf
+	//              chapter 8.1 Signal Definition
+	//              But matches the real behavior of CANdb++
+	signal.SetIsBigEndian(m[4].str() == "0");
 
 	uint8_t start_bit = static_cast<uint8_t>(std::stoul(m[2].str()));   // Attention! start_bit should be : LSB position
 	uint8_t signal_size = static_cast<uint8_t>(std::stoul(m[3].str())); 
@@ -95,11 +98,13 @@ bool DBCAnalyzer::SignalRecognizer(std::string const & _line, Message & _msg)
 }
 
 uint8_t DBCAnalyzer::ChangMotorolaOrderMSBT2LSB(uint8_t start_bit, uint8_t signal_size) {
-	while (signal_size--) {
-		start_bit--;
+	while (--signal_size) {
 		if (0 == (start_bit % 8)) {
 			start_bit += 15;
 		}
-	}		
+		else {
+			start_bit--;
+		}
+	}
 	return start_bit;
 }
