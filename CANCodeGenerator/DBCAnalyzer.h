@@ -103,5 +103,7 @@ private:
 
 	bool MessageRecognizer(std::string const & _line, DBCFileDescriptor & _file_descriptor);
 	bool SignalRecognizer(std::string const & _line, Message & _msg);
+
+	uint8_t ChangMotorolaOrderMSBT2LSB(uint8_t start_bit, uint8_t signal_size);
 };
 
