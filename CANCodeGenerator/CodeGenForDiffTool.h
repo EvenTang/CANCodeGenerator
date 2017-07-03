@@ -29,7 +29,7 @@
 class CodeGenForDiffTool
 {
 public:
-	CodeGenForDiffTool();
+	CodeGenForDiffTool(std::string const & _map_name);
 	~CodeGenForDiffTool();
 
 public:
@@ -37,6 +37,9 @@ public:
 
 private:
 	std::vector<std::string> GetMessageInitalCode(Message const & _msg);
+
+private:
+	std::string m_map_name;
 
 };
 

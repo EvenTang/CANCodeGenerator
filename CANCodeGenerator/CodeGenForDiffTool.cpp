@@ -2,8 +2,9 @@
 
 
 
-CodeGenForDiffTool::CodeGenForDiffTool()
+CodeGenForDiffTool::CodeGenForDiffTool(std::string const & _map_name)
 {
+	m_map_name = _map_name;
 }
 
 
@@ -34,7 +35,7 @@ std::vector<std::string> CodeGenForDiffTool::GetMessageInitalCode(Message const 
 	//  	Signal("SIG_07",    7, 16, true),
 	//  });
 	//
-	source_code.push_back("m_message_pool[" + std::to_string(_msg.ID()) + "] = Message(\"" + _msg.Name() + "\", std::vector<Signal>{");
+	source_code.push_back(m_map_name + "[" + std::to_string(_msg.ID()) + "] = Message(\"" + _msg.Name() + "\", std::vector<Signal>{");
 	for (auto signal : _msg.Signals()) {
 		auto init_signal = "    Signal(\"" + 
 			signal.Name() + 
