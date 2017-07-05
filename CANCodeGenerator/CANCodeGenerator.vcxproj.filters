@@ -30,6 +30,12 @@
     <ClCompile Include="CommonlibsForCodeGen.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="lywGenCodeTempParser.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="lywCodeRuntime.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SampleSource.h">
@@ -45,6 +51,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CommonlibsForCodeGen.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lywGenCodeTempParser.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lywCodeRuntime.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -146,6 +146,8 @@
     <ClCompile Include="CodeGenForDiffTool.cpp" />
     <ClCompile Include="CommonlibsForCodeGen.cpp" />
     <ClCompile Include="DBCAnalyzer.cpp" />
+    <ClCompile Include="lywCodeRuntime.cpp" />
+    <ClCompile Include="lywGenCodeTempParser.cpp" />
     <ClCompile Include="MainFile.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +155,8 @@
     <ClInclude Include="CodeGenForDiffTool.h" />
     <ClInclude Include="CommonlibsForCodeGen.h" />
     <ClInclude Include="DBCAnalyzer.h" />
+    <ClInclude Include="lywCodeRuntime.h" />
+    <ClInclude Include="lywGenCodeTempParser.h" />
     <ClInclude Include="SampleSource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
