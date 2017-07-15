@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <regex>
 
 #include "CommonlibsForCodeGen.h"
 
@@ -67,7 +68,7 @@ public:
 
 		for (auto loog_var : m_for_rang) {
 			for (auto code_pointer = start + 1; code_pointer != end; ++code_pointer) {
-				auto executed_code = ExpandStatement(code_pointer);
+				auto executed_code = ExpandStatement(code_pointer, loog_var);
 				generated_code.push_back(executed_code);
 			}
 		}
@@ -76,14 +77,23 @@ public:
 	}
 
 
-	std::string ExpandStatement(CodeLineConstPointer code_pointer) {
+	std::string ExpandStatement(CodeLineConstPointer code_pointer, T _cur_loop_var) {
+		
+		std::string source_line = *code_pointer;
+		
 		// find the embedded lyw code
+		std::regex re(R"((.*)@([^@])\.([^@])@)(.*)");
+		std::smatch m;
+		while (std::regex_match(source_line, m, re)) {
+			// evaluate the embedded lyw code 
+			if (m.str(2) != m_loop_variable_name) {
+				//return "";
+				throw std::logic_error("lyw Code is not right~! Unknown variable ~!");
+			}
+			source_line = m.str(1) + _cur_loop_var.EvaluateProperty(m.str(3)) + m.str(4);
+		}
 
-		// evaluate the embedded lyw code 
-
-		// replace the embedded lyw code with evaluated string.
-
-		return "";
+		return source_line;
 	}
 
 
