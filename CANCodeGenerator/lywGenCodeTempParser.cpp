@@ -22,7 +22,7 @@ SourceCode lywGenCodeTempParser::GenerateCode(void) const
 			generated_file.push_back(*iter_to_line);
 	    }
 		else {
-			generated_file += m_interpretor.ExcuteCodeBlock(m_original_file, iter_to_line);
+			generated_file += m_interpretor.ExcuteCodeBlock(iter_to_line, m_original_file.end());
 		}
 	}
 

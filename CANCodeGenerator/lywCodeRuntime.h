@@ -19,10 +19,10 @@ public:
 //	}
 
 private:
-	std::map<std::string, std::function<std::string()>> const m_property_map = {
-		{ "Name", [this]() {return ""; } },
-		{ "ID", [this]() {return ""; } },
-	};
+//	std::map<std::string, std::function<std::string()>> const m_property_map = {
+// 		{ "Name", [this]() {return ""; } },
+// 		{ "ID", [this]() {return ""; } },
+// 	};
 };
 
 class SignalProxy
@@ -30,7 +30,7 @@ class SignalProxy
 public:
 	SignalProxy() {}
 	~SignalProxy() {}
-
+#if 0
 	inline std::string EvaluateProperty(std::string const & _property_name) {
 		return m_property_map[_property_name]();
 	}
@@ -40,6 +40,9 @@ private:
 		{ "Name", [this]() {return ""; } },
 		{ "ID", [this]() {return ""; } },
 	};
+#endif
+
+
 };
 
 
