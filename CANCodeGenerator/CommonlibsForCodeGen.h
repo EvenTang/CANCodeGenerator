@@ -18,7 +18,8 @@ std::vector<T> const & operator += (std::vector<T> & _lhs, std::vector<T> const 
 	return _lhs;
 }
 
-std::vector<std::string> AddIndent(std::vector<std::string> const & _source);
+SourceCode AddPrefixToAll(SourceCode const _source, std::string const & _prefix = "    ");
+SourceCode AddIndent(SourceCode const & _source);
 
 
 
