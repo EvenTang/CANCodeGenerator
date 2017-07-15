@@ -16,13 +16,18 @@ lywCodeRuntime::~lywCodeRuntime()
 }
 
 
+bool lywCodeRuntime::Is_AnylywCode(CodeLineConstPointer iter_to_line)
+{
+	return false;
+}
+
 SourceCode lywCodeRuntime::ExcuteCodeBlock(CodeLineConstPointer & _iter_to_line, CodeLineConstPointer _end_of_file)
 {
 	if (_iter_to_line->find("%%")) {
 		regex re_for_start(R"(.*%%\s*for.*%%)");
 		if (std::regex_match(*_iter_to_line, re_for_start)) {
 			auto temp = _iter_to_line;
-			ForStatement<int> for_block; // todo: int should be MessageProxy/SignalProxy/DBCProxy
+			ForStatement<SignalProxy> for_block; // todo: int should be MessageProxy/SignalProxy/DBCProxy
 			for_block.start = temp;
 			regex re_for_end(R"(.*%%\s*endfor.*%%)");
 

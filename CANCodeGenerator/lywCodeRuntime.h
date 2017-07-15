@@ -9,6 +9,23 @@
 #include "CommonlibsForCodeGen.h"
 
 
+class lywCodeRuntime
+{
+public:
+	lywCodeRuntime();
+	~lywCodeRuntime();
+
+public:
+	static bool Is_AnylywCode(CodeLineConstPointer iter_to_line);
+	static SourceCode ExcuteCodeBlock(CodeLineConstPointer & _iter_to_line, CodeLineConstPointer _end_of_file);
+
+public:
+
+
+};
+
+
+
 class MsgProxy
 {
 public:
@@ -31,6 +48,13 @@ class SignalProxy
 public:
 	SignalProxy() {}
 	~SignalProxy() {}
+
+	inline std::string EvaluateProperty(std::string const & _property_name) {
+		return "";
+		//return m_property_map[_property_name]();
+	}
+
+
 #if 0
 	inline std::string EvaluateProperty(std::string const & _property_name) {
 		return m_property_map[_property_name]();
@@ -68,6 +92,10 @@ public:
 
 		for (auto loog_var : m_for_rang) {
 			for (auto code_pointer = start + 1; code_pointer != end; ++code_pointer) {
+				
+				if (lywCodeRuntime::Is_AnylywCode(code_pointer)) {
+					generated_code += lywCodeRuntime::ExcuteCodeBlock(code_pointer, end);
+				}
 				auto executed_code = ExpandStatement(code_pointer, loog_var);
 				generated_code.push_back(executed_code);
 			}
@@ -105,15 +133,4 @@ public:
 	std::vector<T> m_for_rang;
 };
 
-
-
-class lywCodeRuntime
-{
-public:
-	lywCodeRuntime();
-	~lywCodeRuntime();
-
-
-	SourceCode ExcuteCodeBlock(CodeLineConstPointer & _iter_to_line, CodeLineConstPointer _end_of_file);
-};
 
