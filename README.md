@@ -140,5 +140,5 @@ To be updated. (functionality of the tool~)
 
 1. improve the DBC parser to support complete generate complete DBCDescriptor.
 2. Greate Kinds of Code Generator to support more needs.
-3. Compare to ： [VS CodeGenerator](https://msdn.microsoft.com/en-us/library/dd820620.aspx)
+3. Compare to ： [VS CodeGenerator](https://msdn.microsoft.com/en-us/library/dd820620.aspx) (Maybe I should try this first~)
 
