@@ -72,7 +72,11 @@ private:
 
 
 
-// %% for @sth in @DBC.All [if @sth.Name == X] %%
+// @brief Block for " %% for @sth in @DBC.All [if @sth.Name == X] %% "
+//
+//    where T should have:
+//        std::string EvaluateProperty(std::string)
+//        
 template <typename T>
 class ForStatement {
 

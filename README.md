@@ -30,7 +30,6 @@ BO_ 1588 CAN_Message_3: 8 BCM
  SG_ SIG1103 : 39|16@0+ (0.001,0) [0|5] "V"  ECU,BCM
  SG_ SIG1003 : 23|16@0+ (0.001,0) [0|5] "V"  ECU,BCM
  SG_ SIG0903 : 7|16@0+ (0.001,0) [0|5] "V"  ECU,BCM
-
 ```
 
 The tool will generate the following C++ code for processing CAN messages defined in the above DBC file:
@@ -141,4 +140,5 @@ To be updated. (functionality of the tool~)
 
 1. improve the DBC parser to support complete generate complete DBCDescriptor.
 2. Greate Kinds of Code Generator to support more needs.
+3. Compare to ： [VS CodeGenerator](https://msdn.microsoft.com/en-us/library/dd820620.aspx)
 
